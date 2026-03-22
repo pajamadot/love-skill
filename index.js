@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * Love Skill - Entry point
+ * Love Skill - Bilingual AI Relationship Counseling Framework
+ * Supports English (en) and Chinese (zh) markets.
  * Delegates to evolver-engine for evolution cycles.
- * Standalone usage: loads SKILL.md and frameworks for AI agent consumption.
  */
 const fs = require('fs');
 const path = require('path');
@@ -12,75 +12,73 @@ try { require('dotenv').config({ path: path.join(__dirname, '.env') }); } catch 
 const args = process.argv.slice(2);
 const command = args[0];
 
+// Language detection: --lang=zh, --zh, or LOVE_SKILL_LANG env var
+const langFlag = args.find(a => a.startsWith('--lang='));
+const lang = langFlag ? langFlag.split('=')[1]
+  : args.includes('--zh') ? 'zh'
+  : args.includes('--en') ? 'en'
+  : process.env.LOVE_SKILL_LANG || 'en';
+
+function contentDir() {
+  if (lang === 'zh') return path.join(__dirname, 'zh');
+  return __dirname;
+}
+
 function loadSkill() {
-  const skillPath = path.join(__dirname, 'SKILL.md');
+  const skillPath = path.join(contentDir(), 'SKILL.md');
   if (!fs.existsSync(skillPath)) {
-    console.error('[love-skill] SKILL.md not found.');
+    console.error(`[love-skill] SKILL.md not found for lang=${lang}.`);
     process.exit(1);
   }
   return fs.readFileSync(skillPath, 'utf8');
 }
 
-function loadFrameworks() {
-  const frameworkDir = path.join(__dirname, 'frameworks');
-  if (!fs.existsSync(frameworkDir)) return {};
-  const frameworks = {};
-  const files = fs.readdirSync(frameworkDir).filter(f => f.endsWith('.md'));
+function loadDir(dirName) {
+  const dir = path.join(contentDir(), dirName);
+  if (!fs.existsSync(dir)) return {};
+  const result = {};
+  const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
   for (const file of files) {
-    const name = path.basename(file, '.md');
-    frameworks[name] = fs.readFileSync(path.join(frameworkDir, file), 'utf8');
+    result[path.basename(file, '.md')] = fs.readFileSync(path.join(dir, file), 'utf8');
   }
-  return frameworks;
+  return result;
 }
 
-function loadProtocols() {
-  const protocolDir = path.join(__dirname, 'protocols');
-  if (!fs.existsSync(protocolDir)) return {};
-  const protocols = {};
-  const files = fs.readdirSync(protocolDir).filter(f => f.endsWith('.md'));
-  for (const file of files) {
-    const name = path.basename(file, '.md');
-    protocols[name] = fs.readFileSync(path.join(protocolDir, file), 'utf8');
-  }
-  return protocols;
-}
+function loadFrameworks() { return loadDir('frameworks'); }
+function loadProtocols() { return loadDir('protocols'); }
 
 if (command === 'show' || command === 'load') {
-  const skill = loadSkill();
-  console.log(skill);
+  console.log(loadSkill());
 } else if (command === 'frameworks') {
-  const fw = loadFrameworks();
-  for (const [name, content] of Object.entries(fw)) {
+  for (const [name, content] of Object.entries(loadFrameworks())) {
     console.log(`\n${'='.repeat(60)}\n${name}\n${'='.repeat(60)}`);
     console.log(content);
   }
 } else if (command === 'protocols') {
-  const pr = loadProtocols();
-  for (const [name, content] of Object.entries(pr)) {
+  for (const [name, content] of Object.entries(loadProtocols())) {
     console.log(`\n${'='.repeat(60)}\n${name}\n${'='.repeat(60)}`);
     console.log(content);
   }
 } else if (command === 'analyze') {
-  // Output structured JSON for agent consumption
-  const skill = loadSkill();
   const frameworks = loadFrameworks();
   const protocols = loadProtocols();
   console.log(JSON.stringify({
     skill_name: 'love-skill',
-    version: '1.0.0',
-    skill_content: skill,
+    version: '2.0.0',
+    language: lang,
+    languages_available: ['en', 'zh'],
+    skill_content: loadSkill(),
     frameworks: Object.keys(frameworks),
     protocols: Object.keys(protocols),
     available_commands: ['show', 'frameworks', 'protocols', 'analyze', 'evolve'],
   }, null, 2));
 } else if (command === 'evolve') {
-  // Delegate to evolver-engine
   const evolverPath = path.join(__dirname, 'evolver-engine', 'index.js');
   if (!fs.existsSync(evolverPath)) {
     console.error('[love-skill] evolver-engine not found. Run: git submodule update --init');
     process.exit(1);
   }
-  const evolverArgs = ['--loop', ...args.slice(1)];
+  const evolverArgs = ['--loop', ...args.slice(1).filter(a => !a.startsWith('--lang') && a !== '--zh' && a !== '--en')];
   const { spawn } = require('child_process');
   const env = Object.assign({}, process.env, {
     EVOLVE_STRATEGY: process.env.EVOLVE_STRATEGY || 'innovate',
@@ -93,18 +91,27 @@ if (command === 'show' || command === 'load') {
   child.on('exit', code => process.exit(code || 0));
 } else {
   console.log(`Love Skill - AI-Powered Relationship Counseling Framework
+  Bilingual: English + Chinese / 双语支持：英文 + 中文
 
-Usage:
-  node index.js show          Load and display the full SKILL.md
-  node index.js frameworks    Display all psychological frameworks
-  node index.js protocols     Display all intervention protocols
-  node index.js analyze       Output structured JSON for agent consumption
-  node index.js evolve        Start evolver in --loop mode with innovate strategy
+Usage / 用法:
+  node index.js show              Load SKILL.md (English)
+  node index.js show --zh         加载 SKILL.md（中文）
+  node index.js frameworks        Display all frameworks (EN)
+  node index.js frameworks --zh   显示所有框架（中文）
+  node index.js protocols         Display all protocols (EN)
+  node index.js protocols --zh    显示所有协议（中文）
+  node index.js analyze           JSON output for agents (EN)
+  node index.js analyze --zh      JSON输出（中文）
+  node index.js evolve            Start evolver --loop
 
-Evolution:
-  npm run evolve              Run evolver in continuous loop mode
-  npm run evolve:innovate     Run with EVOLVE_STRATEGY=innovate
-  npm run evolve:review       Review pending evolution changes
-  npm run evolve:solidify     Solidify approved changes
+Language flags / 语言选项:
+  --en                            English (default)
+  --zh                            中文
+  --lang=zh                       中文
+  LOVE_SKILL_LANG=zh              Environment variable / 环境变量
+
+Evolution / 进化:
+  npm run evolve                  Run evolver in continuous loop
+  npm run evolve:innovate         Run with EVOLVE_STRATEGY=innovate
 `);
 }
