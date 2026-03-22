@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "capsules": [
+    {
+      "type": "Capsule",
+      "trigger": ["attachment_conflict", "anxious_avoidant_cycle"],
+      "gene": "gene_love_attachment_analysis",
+      "summary": "Successfully applied attachment theory analysis to identify and address anxious-avoidant pursue-withdraw cycle in couple conflict.",
+      "confidence": 0.85,
+      "blast_radius": {
+        "files": 3,
+        "lines": 450
+      },
+      "env_fingerprint": {
+        "node_version": "18+",
+        "platform": "any",
+        "arch": "any"
+      },
+      "success_streak": 1,
+      "outcome": {
+        "status": "success",
+        "quality_score": 0.85
+      }
+    },
+    {
+      "type": "Capsule",
+      "trigger": ["criticism_detected", "contempt_detected", "negative_communication"],
+      "gene": "gene_love_gottman_horsemen_check",
+      "summary": "Applied Gottman Four Horsemen diagnostic and antidote protocol. Identified contempt as primary horseman, prescribed fondness-admiration exercises.",
+      "confidence": 0.9,
+      "blast_radius": {
+        "files": 2,
+        "lines": 200
+      },
+      "env_fingerprint": {
+        "node_version": "18+",
+        "platform": "any",
+        "arch": "any"
+      },
+      "success_streak": 1,
+      "outcome": {
+        "status": "success",
+        "quality_score": 0.9
+      }
+    },
+    {
+      "type": "Capsule",
+      "trigger": ["communication_breakdown", "unmet_needs", "blame_pattern"],
+      "gene": "gene_love_nvc_conflict_resolution",
+      "summary": "Transformed blame-based communication into NVC needs-based dialogue. Both partners successfully expressed needs without triggering defensiveness.",
+      "confidence": 0.88,
+      "blast_radius": {
+        "files": 2,
+        "lines": 300
+      },
+      "env_fingerprint": {
+        "node_version": "18+",
+        "platform": "any",
+        "arch": "any"
+      },
+      "success_streak": 1,
+      "outcome": {
+        "status": "success",
+        "quality_score": 0.88
+      }
+    },
+    {
+      "type": "Capsule",
+      "trigger": ["repetition_compulsion", "projection_detected", "childhood_wound_activated"],
+      "gene": "gene_love_psychoanalytic_depth",
+      "summary": "Identified transference pattern from partner's early caregiver dynamics. Shadow work revealed projected disowned need for vulnerability. Couple achieved insight breakthrough.",
+      "confidence": 0.82,
+      "blast_radius": {
+        "files": 3,
+        "lines": 500
+      },
+      "env_fingerprint": {
+        "node_version": "18+",
+        "platform": "any",
+        "arch": "any"
+      },
+      "success_streak": 1,
+      "outcome": {
+        "status": "success",
+        "quality_score": 0.82
+      }
+    },
+    {
+      "type": "Capsule",
+      "trigger": ["gender_communication_gap", "emotional_labor_imbalance"],
+      "gene": "gene_love_gender_bridge",
+      "summary": "Bridged masculine problem-solving orientation with feminine emotional processing need. Both partners expanded communication repertoire beyond gendered defaults.",
+      "confidence": 0.86,
+      "blast_radius": {
+        "files": 2,
+        "lines": 350
+      },
+      "env_fingerprint": {
+        "node_version": "18+",
+        "platform": "any",
+        "arch": "any"
+      },
+      "success_streak": 1,
+      "outcome": {
+        "status": "success",
+        "quality_score": 0.86
+      }
+    },
+    {
+      "type": "Capsule",
+      "trigger": ["metacognitive_upgrade", "systems_thinking_needed"],
+      "gene": "gene_love_metacognitive_upgrade",
+      "summary": "Introduced double-loop learning and systems thinking to help couple move from symptom-level arguments to pattern-level insight. Circular dynamic successfully externalized.",
+      "confidence": 0.84,
+      "blast_radius": {
+        "files": 4,
+        "lines": 600
+      },
+      "env_fingerprint": {
+        "node_version": "18+",
+        "platform": "any",
+        "arch": "any"
+      },
+      "success_streak": 1,
+      "outcome": {
+        "status": "success",
+        "quality_score": 0.84
+      }
+    }
+  ]
+}

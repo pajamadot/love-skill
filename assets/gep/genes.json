@@ -1,0 +1,193 @@
+{
+  "version": 1,
+  "genes": [
+    {
+      "type": "Gene",
+      "id": "gene_love_attachment_analysis",
+      "category": "innovate",
+      "signals_match": [
+        "attachment_conflict",
+        "anxious_avoidant_cycle",
+        "abandonment_fear",
+        "emotional_distance",
+        "clinginess",
+        "trust_issues"
+      ],
+      "preconditions": [
+        "couple presents with recurring pursue-withdraw dynamics",
+        "one or both partners show insecure attachment patterns"
+      ],
+      "summary": "Analyze couple's attachment styles and their interaction dynamics to identify the core attachment dance driving conflict.",
+      "strategy": [
+        "Identify each partner's primary attachment style from behavioral indicators",
+        "Map the attachment interaction pattern using the Attachment Interaction Matrix",
+        "Identify the trigger -> response -> counter-response cycle",
+        "Determine which attachment needs are unmet for each partner",
+        "Design attachment-informed interventions that address security needs",
+        "Validate by checking if both partners feel 'seen' in the analysis"
+      ],
+      "constraints": {
+        "max_files": 10,
+        "forbidden_paths": [".git", "node_modules"]
+      },
+      "validation": [
+        "node -e \"const f=require('fs');const s=f.readFileSync('SKILL.md','utf8');if(!s.includes('Attachment'))throw new Error('missing');console.log('ok')\""
+      ]
+    },
+    {
+      "type": "Gene",
+      "id": "gene_love_gottman_horsemen_check",
+      "category": "innovate",
+      "signals_match": [
+        "criticism_detected",
+        "contempt_detected",
+        "defensiveness_detected",
+        "stonewalling_detected",
+        "negative_communication",
+        "escalation_pattern"
+      ],
+      "preconditions": [
+        "couple reports communication breakdown or hostile interactions"
+      ],
+      "summary": "Apply Gottman Four Horsemen diagnostic and prescribe targeted antidotes for each horseman detected.",
+      "strategy": [
+        "Scan the couple's described interactions for each of the Four Horsemen",
+        "Rate severity of each horseman present (mild / moderate / severe)",
+        "Identify the primary horseman driving the conflict",
+        "Apply the specific antidote for each detected horseman",
+        "Teach the couple the 5:1 positive-to-negative ratio principle",
+        "Design bid-and-turning exercises to rebuild positive sentiment"
+      ],
+      "constraints": {
+        "max_files": 10,
+        "forbidden_paths": [".git", "node_modules"]
+      },
+      "validation": [
+        "node -e \"const f=require('fs');const s=f.readFileSync('SKILL.md','utf8');if(!s.includes('Gottman'))throw new Error('missing');console.log('ok')\""
+      ]
+    },
+    {
+      "type": "Gene",
+      "id": "gene_love_nvc_conflict_resolution",
+      "category": "innovate",
+      "signals_match": [
+        "communication_breakdown",
+        "unmet_needs",
+        "blame_pattern",
+        "demand_pattern",
+        "passive_aggressive"
+      ],
+      "preconditions": [
+        "couple struggles to express needs without triggering defensiveness"
+      ],
+      "summary": "Guide couples through NVC four-step process to transform blame into needs-based communication.",
+      "strategy": [
+        "Identify evaluative/judgmental language in each partner's communication",
+        "Help each partner separate observation from evaluation",
+        "Map surface complaints to underlying universal human needs",
+        "Transform demands into requests using NVC format",
+        "Practice empathic reception: hearing the need behind the criticism",
+        "Create a shared NVC vocabulary for future conflicts"
+      ],
+      "constraints": {
+        "max_files": 10,
+        "forbidden_paths": [".git", "node_modules"]
+      },
+      "validation": [
+        "node -e \"const f=require('fs');const s=f.readFileSync('SKILL.md','utf8');if(!s.includes('NVC'))throw new Error('missing');console.log('ok')\""
+      ]
+    },
+    {
+      "type": "Gene",
+      "id": "gene_love_psychoanalytic_depth",
+      "category": "innovate",
+      "signals_match": [
+        "repetition_compulsion",
+        "projection_detected",
+        "childhood_wound_activated",
+        "transference_pattern",
+        "shadow_conflict"
+      ],
+      "preconditions": [
+        "surface-level interventions have not resolved the recurring pattern",
+        "one or both partners seem to be re-enacting historical relational wounds"
+      ],
+      "summary": "Apply psychoanalytic depth analysis to uncover unconscious patterns driving repetitive relationship conflicts.",
+      "strategy": [
+        "Identify defense mechanisms active in the current conflict",
+        "Explore transference: 'Who does your partner remind you of in this moment?'",
+        "Map repetition compulsion: what childhood dynamic is being replayed?",
+        "Apply shadow work: what disowned quality in self is being projected onto partner?",
+        "Help partners differentiate past-wound response from present-reality response",
+        "Facilitate 'inner child' dialogue to process underlying attachment injuries"
+      ],
+      "constraints": {
+        "max_files": 10,
+        "forbidden_paths": [".git", "node_modules"]
+      },
+      "validation": [
+        "node -e \"const f=require('fs');const s=f.readFileSync('SKILL.md','utf8');if(!s.includes('Psychoanalytic'))throw new Error('missing');console.log('ok')\""
+      ]
+    },
+    {
+      "type": "Gene",
+      "id": "gene_love_gender_bridge",
+      "category": "innovate",
+      "signals_match": [
+        "gender_communication_gap",
+        "emotional_labor_imbalance",
+        "problem_solving_vs_processing",
+        "different_love_languages"
+      ],
+      "preconditions": [
+        "partners exhibit socialized gender-pattern communication mismatches"
+      ],
+      "summary": "Bridge gender-socialized communication patterns to help partners understand and adapt to each other's relational style.",
+      "strategy": [
+        "Identify socialized communication patterns in each partner (report vs. rapport talk)",
+        "Map the emotional labor distribution in the relationship",
+        "Translate each partner's bids into the other's communication language",
+        "Address the 'fix vs. feel' dynamic (problem-solving vs. emotional processing)",
+        "Expand both partners' communication repertoire beyond gendered defaults",
+        "Design cross-gender empathy exercises"
+      ],
+      "constraints": {
+        "max_files": 10,
+        "forbidden_paths": [".git", "node_modules"]
+      },
+      "validation": [
+        "node -e \"const f=require('fs');const s=f.readFileSync('SKILL.md','utf8');if(!s.includes('Gender'))throw new Error('missing');console.log('ok')\""
+      ]
+    },
+    {
+      "type": "Gene",
+      "id": "gene_love_metacognitive_upgrade",
+      "category": "innovate",
+      "signals_match": [
+        "metacognitive_upgrade",
+        "thinking_framework_gap",
+        "double_loop_opportunity",
+        "systems_thinking_needed"
+      ],
+      "preconditions": [
+        "opportunity to introduce a higher-order thinking framework for relationship analysis"
+      ],
+      "summary": "Enhance the skill's metacognitive architecture with new thinking methodologies, perspective-taking tools, or systems-level analytical frameworks.",
+      "strategy": [
+        "Identify the specific metacognitive gap or opportunity",
+        "Research and formulate the new thinking framework",
+        "Integrate it with existing frameworks (attachment, Gottman, NVC, CBT)",
+        "Create concrete exercises that operationalize the new framework",
+        "Test the framework against 3+ common couple conflict scenarios",
+        "Update SKILL.md with the new metacognitive tool"
+      ],
+      "constraints": {
+        "max_files": 15,
+        "forbidden_paths": [".git", "node_modules"]
+      },
+      "validation": [
+        "node -e \"const f=require('fs');const s=f.readFileSync('SKILL.md','utf8');if(!s.includes('Metacognitive'))throw new Error('missing');console.log('ok')\""
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "name": "@evomap/love-skill",
+  "version": "1.0.0",
+  "description": "A psychologically-grounded relationship counseling skill for AI agents. Helps couples resolve conflicts using attachment theory, Gottman method, psychoanalysis, CBT, NVC, gender psychology, and metacognitive strategies.",
+  "main": "index.js",
+  "bin": {
+    "love-skill": "index.js"
+  },
+  "keywords": [
+    "evomap",
+    "ai",
+    "relationship",
+    "psychology",
+    "counseling",
+    "couples",
+    "attachment-theory",
+    "gottman",
+    "nvc",
+    "cbt",
+    "metacognition",
+    "conflict-resolution"
+  ],
+  "author": "PajamaDot",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PajamaDot/love-skill.git"
+  },
+  "homepage": "https://evomap.ai",
+  "scripts": {
+    "start": "node index.js",
+    "evolve": "node evolver-engine/index.js --loop",
+    "evolve:innovate": "EVOLVE_STRATEGY=innovate node evolver-engine/index.js --loop",
+    "evolve:review": "node evolver-engine/index.js review",
+    "evolve:solidify": "node evolver-engine/index.js solidify",
+    "a2a:export": "node evolver-engine/scripts/a2a_export.js",
+    "a2a:ingest": "node evolver-engine/scripts/a2a_ingest.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7"
+  }
+}
