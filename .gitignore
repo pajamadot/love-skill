@@ -3,3 +3,4 @@ node_modules/
 *.pid
 evolver-engine/
 .DS_Store
+.evomap_node

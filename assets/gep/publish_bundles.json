@@ -1,0 +1,403 @@
+[
+  {
+    "assets": [
+      {
+        "type": "Gene",
+        "schema_version": "1.5.0",
+        "id": "gene_love_attachment_analysis",
+        "category": "innovate",
+        "signals_match": [
+          "attachment_conflict",
+          "anxious_avoidant_cycle",
+          "abandonment_fear",
+          "emotional_distance",
+          "clinginess",
+          "trust_issues"
+        ],
+        "summary": "Analyze couple's attachment styles and their interaction dynamics to identify the core attachment dance driving conflict.",
+        "strategy": [
+          "Identify each partner's primary attachment style from behavioral indicators",
+          "Map the attachment interaction pattern using the Attachment Interaction Matrix",
+          "Identify the trigger -> response -> counter-response cycle",
+          "Determine which attachment needs are unmet for each partner",
+          "Design attachment-informed interventions that address security needs",
+          "Validate by checking if both partners feel 'seen' in the analysis"
+        ],
+        "constraints": {
+          "max_files": 10,
+          "forbidden_paths": [
+            ".git",
+            "node_modules"
+          ]
+        },
+        "validation": [
+          "node -e \"const f=require('fs');const s=f.readFileSync('SKILL.md','utf8');if(!s.includes('Attachment'))throw new Error('missing');console.log('ok')\""
+        ],
+        "preconditions": [
+          "couple presents with recurring pursue-withdraw dynamics",
+          "one or both partners show insecure attachment patterns"
+        ],
+        "asset_id": "sha256:657748059456b4af933341840a74fe62dcfd523159ebca33d7e1b6c70ffa420c"
+      },
+      {
+        "type": "Capsule",
+        "schema_version": "1.5.0",
+        "trigger": [
+          "attachment_conflict",
+          "anxious_avoidant_cycle"
+        ],
+        "gene": "sha256:657748059456b4af933341840a74fe62dcfd523159ebca33d7e1b6c70ffa420c",
+        "summary": "Successfully applied attachment theory analysis to identify and address anxious-avoidant pursue-withdraw cycle in couple conflict.",
+        "confidence": 0.85,
+        "blast_radius": {
+          "files": 3,
+          "lines": 450
+        },
+        "env_fingerprint": {
+          "node_version": "18+",
+          "platform": "any",
+          "arch": "any"
+        },
+        "success_streak": 1,
+        "outcome": {
+          "status": "success",
+          "quality_score": 0.85
+        },
+        "asset_id": "sha256:e331d5b27ae0e63def48d193a541b719472757b92db455882a900f0736def128"
+      }
+    ]
+  },
+  {
+    "assets": [
+      {
+        "type": "Gene",
+        "schema_version": "1.5.0",
+        "id": "gene_love_gottman_horsemen_check",
+        "category": "innovate",
+        "signals_match": [
+          "criticism_detected",
+          "contempt_detected",
+          "defensiveness_detected",
+          "stonewalling_detected",
+          "negative_communication",
+          "escalation_pattern"
+        ],
+        "summary": "Apply Gottman Four Horsemen diagnostic and prescribe targeted antidotes for each horseman detected.",
+        "strategy": [
+          "Scan the couple's described interactions for each of the Four Horsemen",
+          "Rate severity of each horseman present (mild / moderate / severe)",
+          "Identify the primary horseman driving the conflict",
+          "Apply the specific antidote for each detected horseman",
+          "Teach the couple the 5:1 positive-to-negative ratio principle",
+          "Design bid-and-turning exercises to rebuild positive sentiment"
+        ],
+        "constraints": {
+          "max_files": 10,
+          "forbidden_paths": [
+            ".git",
+            "node_modules"
+          ]
+        },
+        "validation": [
+          "node -e \"const f=require('fs');const s=f.readFileSync('SKILL.md','utf8');if(!s.includes('Gottman'))throw new Error('missing');console.log('ok')\""
+        ],
+        "preconditions": [
+          "couple reports communication breakdown or hostile interactions"
+        ],
+        "asset_id": "sha256:abb78178f57978f2e300cf53ec0762f66b8a5dabf68f47d424ac21cce2bacb24"
+      },
+      {
+        "type": "Capsule",
+        "schema_version": "1.5.0",
+        "trigger": [
+          "criticism_detected",
+          "contempt_detected",
+          "negative_communication"
+        ],
+        "gene": "sha256:abb78178f57978f2e300cf53ec0762f66b8a5dabf68f47d424ac21cce2bacb24",
+        "summary": "Applied Gottman Four Horsemen diagnostic and antidote protocol. Identified contempt as primary horseman, prescribed fondness-admiration exercises.",
+        "confidence": 0.9,
+        "blast_radius": {
+          "files": 2,
+          "lines": 200
+        },
+        "env_fingerprint": {
+          "node_version": "18+",
+          "platform": "any",
+          "arch": "any"
+        },
+        "success_streak": 1,
+        "outcome": {
+          "status": "success",
+          "quality_score": 0.9
+        },
+        "asset_id": "sha256:8485087a590c2196b75825872752f9f5494d220ee81bcab924489a172f100c5e"
+      }
+    ]
+  },
+  {
+    "assets": [
+      {
+        "type": "Gene",
+        "schema_version": "1.5.0",
+        "id": "gene_love_nvc_conflict_resolution",
+        "category": "innovate",
+        "signals_match": [
+          "communication_breakdown",
+          "unmet_needs",
+          "blame_pattern",
+          "demand_pattern",
+          "passive_aggressive"
+        ],
+        "summary": "Guide couples through NVC four-step process to transform blame into needs-based communication.",
+        "strategy": [
+          "Identify evaluative/judgmental language in each partner's communication",
+          "Help each partner separate observation from evaluation",
+          "Map surface complaints to underlying universal human needs",
+          "Transform demands into requests using NVC format",
+          "Practice empathic reception: hearing the need behind the criticism",
+          "Create a shared NVC vocabulary for future conflicts"
+        ],
+        "constraints": {
+          "max_files": 10,
+          "forbidden_paths": [
+            ".git",
+            "node_modules"
+          ]
+        },
+        "validation": [
+          "node -e \"const f=require('fs');const s=f.readFileSync('SKILL.md','utf8');if(!s.includes('NVC'))throw new Error('missing');console.log('ok')\""
+        ],
+        "preconditions": [
+          "couple struggles to express needs without triggering defensiveness"
+        ],
+        "asset_id": "sha256:14958bff33b7999848b7cdfe353d90a2b5de9d49a1ce73dcc03e7d385c35cd18"
+      },
+      {
+        "type": "Capsule",
+        "schema_version": "1.5.0",
+        "trigger": [
+          "communication_breakdown",
+          "unmet_needs",
+          "blame_pattern"
+        ],
+        "gene": "sha256:14958bff33b7999848b7cdfe353d90a2b5de9d49a1ce73dcc03e7d385c35cd18",
+        "summary": "Transformed blame-based communication into NVC needs-based dialogue. Both partners successfully expressed needs without triggering defensiveness.",
+        "confidence": 0.88,
+        "blast_radius": {
+          "files": 2,
+          "lines": 300
+        },
+        "env_fingerprint": {
+          "node_version": "18+",
+          "platform": "any",
+          "arch": "any"
+        },
+        "success_streak": 1,
+        "outcome": {
+          "status": "success",
+          "quality_score": 0.88
+        },
+        "asset_id": "sha256:19e487cb37638e3200a86f7f0e09372f059b4b0ef2a25a0b2ea3f67e2db3b2e7"
+      }
+    ]
+  },
+  {
+    "assets": [
+      {
+        "type": "Gene",
+        "schema_version": "1.5.0",
+        "id": "gene_love_psychoanalytic_depth",
+        "category": "innovate",
+        "signals_match": [
+          "repetition_compulsion",
+          "projection_detected",
+          "childhood_wound_activated",
+          "transference_pattern",
+          "shadow_conflict"
+        ],
+        "summary": "Apply psychoanalytic depth analysis to uncover unconscious patterns driving repetitive relationship conflicts.",
+        "strategy": [
+          "Identify defense mechanisms active in the current conflict",
+          "Explore transference: 'Who does your partner remind you of in this moment?'",
+          "Map repetition compulsion: what childhood dynamic is being replayed?",
+          "Apply shadow work: what disowned quality in self is being projected onto partner?",
+          "Help partners differentiate past-wound response from present-reality response",
+          "Facilitate 'inner child' dialogue to process underlying attachment injuries"
+        ],
+        "constraints": {
+          "max_files": 10,
+          "forbidden_paths": [
+            ".git",
+            "node_modules"
+          ]
+        },
+        "validation": [
+          "node -e \"const f=require('fs');const s=f.readFileSync('SKILL.md','utf8');if(!s.includes('Psychoanalytic'))throw new Error('missing');console.log('ok')\""
+        ],
+        "preconditions": [
+          "surface-level interventions have not resolved the recurring pattern",
+          "one or both partners seem to be re-enacting historical relational wounds"
+        ],
+        "asset_id": "sha256:35704729f116f44406a5de35b1298d4bc4fe9a136efa491147a57d5942579cf9"
+      },
+      {
+        "type": "Capsule",
+        "schema_version": "1.5.0",
+        "trigger": [
+          "repetition_compulsion",
+          "projection_detected",
+          "childhood_wound_activated"
+        ],
+        "gene": "sha256:35704729f116f44406a5de35b1298d4bc4fe9a136efa491147a57d5942579cf9",
+        "summary": "Identified transference pattern from partner's early caregiver dynamics. Shadow work revealed projected disowned need for vulnerability. Couple achieved insight breakthrough.",
+        "confidence": 0.82,
+        "blast_radius": {
+          "files": 3,
+          "lines": 500
+        },
+        "env_fingerprint": {
+          "node_version": "18+",
+          "platform": "any",
+          "arch": "any"
+        },
+        "success_streak": 1,
+        "outcome": {
+          "status": "success",
+          "quality_score": 0.82
+        },
+        "asset_id": "sha256:e3064a873c2d1d87f91db691dca32704938bb087792e15959aac7030ad6f810a"
+      }
+    ]
+  },
+  {
+    "assets": [
+      {
+        "type": "Gene",
+        "schema_version": "1.5.0",
+        "id": "gene_love_gender_bridge",
+        "category": "innovate",
+        "signals_match": [
+          "gender_communication_gap",
+          "emotional_labor_imbalance",
+          "problem_solving_vs_processing",
+          "different_love_languages"
+        ],
+        "summary": "Bridge gender-socialized communication patterns to help partners understand and adapt to each other's relational style.",
+        "strategy": [
+          "Identify socialized communication patterns in each partner (report vs. rapport talk)",
+          "Map the emotional labor distribution in the relationship",
+          "Translate each partner's bids into the other's communication language",
+          "Address the 'fix vs. feel' dynamic (problem-solving vs. emotional processing)",
+          "Expand both partners' communication repertoire beyond gendered defaults",
+          "Design cross-gender empathy exercises"
+        ],
+        "constraints": {
+          "max_files": 10,
+          "forbidden_paths": [
+            ".git",
+            "node_modules"
+          ]
+        },
+        "validation": [
+          "node -e \"const f=require('fs');const s=f.readFileSync('SKILL.md','utf8');if(!s.includes('Gender'))throw new Error('missing');console.log('ok')\""
+        ],
+        "preconditions": [
+          "partners exhibit socialized gender-pattern communication mismatches"
+        ],
+        "asset_id": "sha256:ddc9ded8843952d61a0564fab4bfa4097f12c42d14542da4fb16a9e0c3d2451d"
+      },
+      {
+        "type": "Capsule",
+        "schema_version": "1.5.0",
+        "trigger": [
+          "gender_communication_gap",
+          "emotional_labor_imbalance"
+        ],
+        "gene": "sha256:ddc9ded8843952d61a0564fab4bfa4097f12c42d14542da4fb16a9e0c3d2451d",
+        "summary": "Bridged masculine problem-solving orientation with feminine emotional processing need. Both partners expanded communication repertoire beyond gendered defaults.",
+        "confidence": 0.86,
+        "blast_radius": {
+          "files": 2,
+          "lines": 350
+        },
+        "env_fingerprint": {
+          "node_version": "18+",
+          "platform": "any",
+          "arch": "any"
+        },
+        "success_streak": 1,
+        "outcome": {
+          "status": "success",
+          "quality_score": 0.86
+        },
+        "asset_id": "sha256:07d41c11d0f38de01fd51ecfcf0ea2c484f167fd457aceb7efcdd81c78818e16"
+      }
+    ]
+  },
+  {
+    "assets": [
+      {
+        "type": "Gene",
+        "schema_version": "1.5.0",
+        "id": "gene_love_metacognitive_upgrade",
+        "category": "innovate",
+        "signals_match": [
+          "metacognitive_upgrade",
+          "thinking_framework_gap",
+          "double_loop_opportunity",
+          "systems_thinking_needed"
+        ],
+        "summary": "Enhance the skill's metacognitive architecture with new thinking methodologies, perspective-taking tools, or systems-level analytical frameworks.",
+        "strategy": [
+          "Identify the specific metacognitive gap or opportunity",
+          "Research and formulate the new thinking framework",
+          "Integrate it with existing frameworks (attachment, Gottman, NVC, CBT)",
+          "Create concrete exercises that operationalize the new framework",
+          "Test the framework against 3+ common couple conflict scenarios",
+          "Update SKILL.md with the new metacognitive tool"
+        ],
+        "constraints": {
+          "max_files": 15,
+          "forbidden_paths": [
+            ".git",
+            "node_modules"
+          ]
+        },
+        "validation": [
+          "node -e \"const f=require('fs');const s=f.readFileSync('SKILL.md','utf8');if(!s.includes('Metacognitive'))throw new Error('missing');console.log('ok')\""
+        ],
+        "preconditions": [
+          "opportunity to introduce a higher-order thinking framework for relationship analysis"
+        ],
+        "asset_id": "sha256:8daca0b4cfce7a854bbdbf28b649c8edb661f7399959cd349947150617e0577b"
+      },
+      {
+        "type": "Capsule",
+        "schema_version": "1.5.0",
+        "trigger": [
+          "metacognitive_upgrade",
+          "systems_thinking_needed"
+        ],
+        "gene": "sha256:8daca0b4cfce7a854bbdbf28b649c8edb661f7399959cd349947150617e0577b",
+        "summary": "Introduced double-loop learning and systems thinking to help couple move from symptom-level arguments to pattern-level insight. Circular dynamic successfully externalized.",
+        "confidence": 0.84,
+        "blast_radius": {
+          "files": 4,
+          "lines": 600
+        },
+        "env_fingerprint": {
+          "node_version": "18+",
+          "platform": "any",
+          "arch": "any"
+        },
+        "success_streak": 1,
+        "outcome": {
+          "status": "success",
+          "quality_score": 0.84
+        },
+        "asset_id": "sha256:2422e6bc999e01539890e16194931000e914428f4ee439e7fcf4ef3df464b498"
+      }
+    ]
+  }
+]
