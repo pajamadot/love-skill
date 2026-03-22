@@ -188,6 +188,162 @@
       "validation": [
         "node -e \"const f=require('fs');const s=f.readFileSync('SKILL.md','utf8');if(!s.includes('Metacognitive'))throw new Error('missing');console.log('ok')\""
       ]
+    },
+    {
+      "type": "Gene",
+      "id": "gene_love_eft_bonding",
+      "category": "innovate",
+      "signals_match": [
+        "emotional_disconnection",
+        "eft_bonding_event",
+        "cant_reach_partner",
+        "pursue_withdraw_deep",
+        "attachment_injury"
+      ],
+      "preconditions": [
+        "couple experiences emotional disconnection beneath surface conflict"
+      ],
+      "summary": "Apply Emotionally Focused Therapy to de-escalate the negative cycle and facilitate bonding events through vulnerable emotional expression.",
+      "strategy": [
+        "Identify the negative interaction cycle (pursue-withdraw, attack-attack, withdraw-withdraw)",
+        "Access attachment emotions beneath surface reactivity using EFT evocative responding",
+        "Help the withdrawer risk engagement from a place of vulnerability",
+        "Guide the pursuer to express need without demand",
+        "Facilitate a Hold Me Tight conversation structured around A.R.E.",
+        "Consolidate the new interaction pattern"
+      ],
+      "constraints": {
+        "max_files": 10,
+        "forbidden_paths": [".git", "node_modules"]
+      },
+      "validation": [
+        "node -e \"const f=require('fs');const s=f.readFileSync('frameworks/eft-emotionally-focused.md','utf8');if(!s.includes('Hold Me Tight'))throw new Error('missing');console.log('ok')\""
+      ]
+    },
+    {
+      "type": "Gene",
+      "id": "gene_love_polyvagal_regulation",
+      "category": "innovate",
+      "signals_match": [
+        "polyvagal_state_shift",
+        "nervous_system_dysregulation",
+        "flooding",
+        "shutdown",
+        "fight_flight_freeze",
+        "cant_think_during_conflict"
+      ],
+      "preconditions": [
+        "one or both partners experience physiological overwhelm during conflict"
+      ],
+      "summary": "Apply Polyvagal Theory to help couples understand and regulate their nervous system states, enabling productive conversation from ventral vagal safety.",
+      "strategy": [
+        "Identify each partner's current nervous system state (ventral/sympathetic/dorsal)",
+        "Teach the traffic light system: GREEN (safe to talk), YELLOW (activated), RED (shutdown)",
+        "Apply state-appropriate interventions (vagal brake exercises, co-regulation, grounding)",
+        "Map triggers and glimmers for each partner's nervous system",
+        "Design a co-regulation protocol the couple can use independently",
+        "Integrate with window of tolerance concept from DBT"
+      ],
+      "constraints": {
+        "max_files": 10,
+        "forbidden_paths": [".git", "node_modules"]
+      },
+      "validation": [
+        "node -e \"const f=require('fs');const s=f.readFileSync('frameworks/polyvagal-theory.md','utf8');if(!s.includes('ventral vagal'))throw new Error('missing');console.log('ok')\""
+      ]
+    },
+    {
+      "type": "Gene",
+      "id": "gene_love_ifs_parts_work",
+      "category": "innovate",
+      "signals_match": [
+        "parts_dialogue_success",
+        "inner_conflict",
+        "disproportionate_reaction",
+        "protective_behavior",
+        "self_sabotage"
+      ],
+      "preconditions": [
+        "one or both partners exhibit reactions disproportionate to the situation, suggesting activated internal parts"
+      ],
+      "summary": "Apply Internal Family Systems to help couples identify protective parts, access exiled wounds, and relate from Self-energy rather than reactive parts.",
+      "strategy": [
+        "Help each partner detect which part is 'in the driver's seat' during conflict",
+        "Facilitate unblending: 'A part of me is angry' instead of 'I am angry'",
+        "Guide curious inquiry into what each part is protecting",
+        "Teach parts language for couple communication",
+        "Facilitate parts dialogue between partners from Self-energy",
+        "Map the parts interaction pattern that maintains the negative cycle"
+      ],
+      "constraints": {
+        "max_files": 10,
+        "forbidden_paths": [".git", "node_modules"]
+      },
+      "validation": [
+        "node -e \"const f=require('fs');const s=f.readFileSync('frameworks/ifs-internal-family-systems.md','utf8');if(!s.includes('Self'))throw new Error('missing');console.log('ok')\""
+      ]
+    },
+    {
+      "type": "Gene",
+      "id": "gene_love_imago_dialogue",
+      "category": "innovate",
+      "signals_match": [
+        "imago_dialogue_complete",
+        "not_feeling_heard",
+        "childhood_wound_recurring",
+        "imago_match_pattern",
+        "healing_conversation_needed"
+      ],
+      "preconditions": [
+        "couple needs structured dialogue to achieve deep understanding beyond surface-level communication"
+      ],
+      "summary": "Guide couples through the Imago Dialogue process (mirror/validate/empathize) to achieve deep mutual understanding and connect present conflicts to childhood wound patterns.",
+      "strategy": [
+        "Identify the Imago match: how each partner's wounds complement the other's",
+        "Guide the three-step Imago Dialogue: Mirroring, Validation, Empathy",
+        "Help each partner articulate the childhood wound beneath the current complaint",
+        "Facilitate Behavior Change Requests (specific, positive, behavioral, doable)",
+        "Apply the Stretching Principle: growth edge for each partner",
+        "Design re-romanticizing exercises (Caring Behaviors, Surprise List)"
+      ],
+      "constraints": {
+        "max_files": 10,
+        "forbidden_paths": [".git", "node_modules"]
+      },
+      "validation": [
+        "node -e \"const f=require('fs');const s=f.readFileSync('frameworks/imago-therapy.md','utf8');if(!s.includes('Imago Dialogue'))throw new Error('missing');console.log('ok')\""
+      ]
+    },
+    {
+      "type": "Gene",
+      "id": "gene_love_somatic_dbt_crisis",
+      "category": "innovate",
+      "signals_match": [
+        "somatic_breakthrough",
+        "emotional_overwhelm",
+        "body_based_trigger",
+        "distress_tolerance_needed",
+        "intense_emotions"
+      ],
+      "preconditions": [
+        "couple or one partner experiences emotional overwhelm that prevents cognitive-level interventions"
+      ],
+      "summary": "Combine somatic awareness and DBT distress tolerance skills to help couples regulate intense emotions through body-based interventions before attempting cognitive processing.",
+      "strategy": [
+        "Assess each partner's current somatic state using the body scan protocol",
+        "Apply TIPP skills (Temperature, Intense exercise, Paced breathing, Progressive relaxation) for immediate regulation",
+        "Guide pendulation between somatic distress and somatic resource",
+        "Teach Check the Facts and Opposite Action from DBT emotion regulation",
+        "Design a co-regulation touch protocol (consent-based)",
+        "Build each partner's somatic resource inventory for future self-regulation"
+      ],
+      "constraints": {
+        "max_files": 10,
+        "forbidden_paths": [".git", "node_modules"]
+      },
+      "validation": [
+        "node -e \"const f=require('fs');const s=f.readFileSync('frameworks/somatic-awareness.md','utf8');if(!s.includes('Somatic'))throw new Error('missing');console.log('ok')\""
+      ]
     }
   ]
 }

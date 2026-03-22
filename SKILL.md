@@ -1,8 +1,16 @@
 ---
 name: love-skill
 description: A psychologically-grounded relationship counseling skill for AI agents. Helps couples identify, analyze, and resolve conflicts using attachment theory, Gottman method, psychoanalytic frameworks, CBT, NVC, gender psychology, and metacognitive strategies.
-version: 1.0.0
-tags: [relationship, psychology, counseling, couples, conflict-resolution, metacognition]
+version: 2.0.0
+tags: [relationship, psychology, counseling, couples, conflict-resolution, metacognition, eft, dbt, polyvagal, ifs, imago, somatic]
+evolution:
+  total_cycles: 217+
+  memory_graph_entries: 1830+
+  hub_search_hits: 143+
+  capability_candidates: 474+
+  frameworks: 11
+  protocols: 4
+  personality_state: {rigor: 0.7, creativity: 0.35, verbosity: 0.25, risk_tolerance: 0.4, obedience: 0.85}
 permissions: [network]
 metadata:
   evomap:
@@ -426,6 +434,39 @@ When analyzing a couple's issue, structure your response as:
 | "They're too needy/distant" | Attachment Theory (Anxious-Avoidant trap) | Gender Psychology |
 | "We disagree on everything" | CBT + Problem-Solving Protocol | Perspective-Taking |
 | "One of us wants change, the other doesn't" | Stages of Change (Prochaska) + Systems | Metacognitive (Level 3-4 analysis) |
+| "I can't reach them emotionally" | EFT (Hold Me Tight) | Polyvagal (co-regulation) |
+| "We keep triggering each other" | IFS (parts work) | Imago (wound matching) |
+| "I shut down / they shut down" | Polyvagal (dorsal vagal) | DBT (distress tolerance) |
+| "I feel overwhelmed by emotions" | DBT (emotion regulation) | Somatic (body-based regulation) |
+| "We chose each other for a reason" | Imago (Imago match) | Psychoanalytic (repetition compulsion) |
+| "Conflict is too intense for either of us" | DBT (TIPP skills) | Polyvagal (window of tolerance) |
+| "We want to have a healing conversation" | Imago Dialogue | EFT (bonding events) |
+| "A part of me wants X but another part wants Y" | IFS (parts detection) | Dialectical thinking |
+
+## v2.0 Framework Architecture (11 Frameworks + 4 Protocols)
+
+### Core Frameworks (in `frameworks/` directory)
+1. **attachment-theory.md** - Bowlby/Ainsworth attachment styles and interaction patterns
+2. **gottman-method.md** - Sound Relationship House, Four Horsemen, repair attempts
+3. **psychoanalytic.md** - Transference, defense mechanisms, shadow work, object relations
+4. **cbt-couples.md** - 10 cognitive distortions, behavioral experiments, restructuring
+5. **nvc.md** - Nonviolent Communication four-step process, needs inventory
+6. **gender-psychology.md** - Socialized communication patterns, emotional labor, bridges
+7. **metacognition.md** - Double-loop learning, systems thinking, perspective-taking, dialectical thinking
+
+### Deep Frameworks (v2.0 additions)
+8. **eft-emotionally-focused.md** - Sue Johnson's EFT: de-escalation, restructuring, bonding events, A.R.E.
+9. **dbt-skills.md** - Marsha Linehan's DBT: mindfulness, distress tolerance, emotion regulation, interpersonal effectiveness
+10. **polyvagal-theory.md** - Stephen Porges: ventral/sympathetic/dorsal vagal states, co-regulation, neuroception, window of tolerance
+11. **ifs-internal-family-systems.md** - Richard Schwartz: Self, Managers, Firefighters, Exiles, parts language, unblending
+12. **imago-therapy.md** - Harville Hendrix: Imago match, Imago Dialogue (mirror/validate/empathize), stretching, BCR
+13. **somatic-awareness.md** - Body-based intelligence: somatic signals, body scan, co-regulation through touch, pendulation
+
+### Intervention Protocols (in `protocols/` directory)
+1. **conflict-resolution.md** - 5-phase integrated protocol (PAUSE/LISTEN/ANALYZE/BRIDGE/REPAIR)
+2. **emotional-repair.md** - 7-step trust rebuilding after injury
+3. **perspective-shift.md** - 6 perspective-shifting exercises (Letter Exchange, Iceberg, Time Machine)
+4. **advanced-metacognition.md** - 6-layer reasoning architecture, 7-lens protocol, error correction, meta-framework selection
 
 ## Evolution Hooks
 
@@ -437,3 +478,8 @@ This skill is designed to evolve through the EvoMap GEP protocol. Key evolution 
 - `gender_model_mismatch`: Gender psychology lens doesn't apply to this couple's dynamics
 - `metacognitive_upgrade`: Opportunity to add a new thinking framework
 - `user_satisfaction_high`: Intervention was especially effective - capture as Capsule
+- `eft_bonding_event`: EFT Hold Me Tight conversation achieved breakthrough
+- `parts_dialogue_success`: IFS parts work helped couple see beneath surface conflict
+- `polyvagal_state_shift`: Nervous system regulation enabled previously impossible conversation
+- `somatic_breakthrough`: Body-based intervention unlocked emotional access
+- `imago_dialogue_complete`: Full mirror/validate/empathize cycle completed with impact
