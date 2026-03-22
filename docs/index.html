@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Skill - AI Relationship Counseling / AI情侣关系咨询</title>
+<meta name="description" content="AI-powered bilingual relationship counseling skill with 13 psychological frameworks. 基于13个心理学框架的AI情侣关系咨询技能。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;--surface:#12121a;--surface2:#1a1a2e;--surface3:#252540;
+  --pink:#ff6b9d;--purple:#c084fc;--blue:#60a5fa;--cyan:#22d3ee;--green:#34d399;--amber:#fbbf24;--rose:#fb7185;
+  --text:#f0f0f5;--text2:#a0a0b5;--text3:#6b6b80;
+  --grad1:linear-gradient(135deg,#ff6b9d,#c084fc);
+  --grad2:linear-gradient(135deg,#60a5fa,#22d3ee);
+  --grad3:linear-gradient(135deg,#c084fc,#60a5fa);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter','Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+
+/* Animated gradient background */
+.bg-glow{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.bg-glow::before,.bg-glow::after{content:'';position:absolute;border-radius:50%;filter:blur(120px);opacity:.15;animation:float 20s infinite}
+.bg-glow::before{width:600px;height:600px;background:#ff6b9d;top:-200px;left:-100px;animation-delay:0s}
+.bg-glow::after{width:500px;height:500px;background:#c084fc;bottom:-200px;right:-100px;animation-delay:-10s}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(100px,50px) scale(1.1)}50%{transform:translate(-50px,100px) scale(.9)}75%{transform:translate(80px,-30px) scale(1.05)}}
+
+.container{max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(20px);background:rgba(10,10,15,.8);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-weight:800;font-size:1.2rem;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--pink)}
+.lang-toggle{background:var(--surface2);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:4px;display:flex;cursor:pointer}
+.lang-btn{padding:4px 12px;border-radius:16px;font-size:.75rem;font-weight:600;border:none;cursor:pointer;transition:all .2s;background:transparent;color:var(--text3)}
+.lang-btn.active{background:var(--grad1);color:#fff}
+
+/* Hero */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px}
+.hero-content{max-width:800px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:20px;background:rgba(192,132,252,.1);border:1px solid rgba(192,132,252,.2);font-size:.8rem;color:var(--purple);font-weight:500;margin-bottom:32px}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;line-height:1.1;margin-bottom:24px}
+h1 .gradient{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:clamp(1rem,2vw,1.25rem);color:var(--text2);max-width:600px;margin:0 auto 40px;line-height:1.7}
+.hero-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:12px;font-weight:600;font-size:.95rem;text-decoration:none;transition:all .25s;border:none;cursor:pointer}
+.btn-primary{background:var(--grad1);color:#fff;box-shadow:0 4px 24px rgba(255,107,157,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,107,157,.4)}
+.btn-secondary{background:var(--surface2);color:var(--text);border:1px solid rgba(255,255,255,.1)}
+.btn-secondary:hover{border-color:var(--pink);background:var(--surface3)}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:40px 0;margin-bottom:80px}
+.stat{text-align:center;padding:32px 16px;border-radius:16px;background:var(--surface);border:1px solid rgba(255,255,255,.05)}
+.stat-num{font-size:2.5rem;font-weight:900;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:.85rem;color:var(--text2);margin-top:4px}
+
+/* Section */
+section{padding:80px 0}
+.section-label{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--pink);margin-bottom:12px}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px}
+.section-desc{color:var(--text2);font-size:1.05rem;max-width:600px;margin-bottom:48px}
+
+/* Framework cards */
+.fw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px}
+.fw-card{padding:28px;border-radius:16px;background:var(--surface);border:1px solid rgba(255,255,255,.05);transition:all .3s;position:relative;overflow:hidden}
+.fw-card:hover{border-color:rgba(255,107,157,.3);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.fw-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad1);opacity:0;transition:opacity .3s}
+.fw-card:hover::before{opacity:1}
+.fw-num{font-size:.7rem;font-weight:700;color:var(--text3);margin-bottom:8px}
+.fw-name{font-size:1.15rem;font-weight:700;margin-bottom:4px}
+.fw-author{font-size:.8rem;color:var(--purple);margin-bottom:10px}
+.fw-desc{font-size:.875rem;color:var(--text2);line-height:1.6}
+.fw-tag{display:inline-block;padding:3px 10px;border-radius:8px;font-size:.7rem;font-weight:600;margin-top:12px}
+.tag-core{background:rgba(255,107,157,.1);color:var(--pink)}
+.tag-deep{background:rgba(96,165,250,.1);color:var(--blue)}
+
+/* Protocols */
+.proto-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.proto-card{padding:28px;border-radius:16px;background:var(--surface);border:1px solid rgba(255,255,255,.05);transition:all .3s}
+.proto-card:hover{border-color:rgba(34,211,238,.3);transform:translateY(-4px)}
+.proto-icon{font-size:2rem;margin-bottom:16px}
+.proto-name{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.proto-desc{font-size:.85rem;color:var(--text2);line-height:1.6}
+
+/* How it works */
+.steps{display:flex;flex-direction:column;gap:0}
+.step{display:flex;gap:24px;padding:32px 0;position:relative}
+.step-line{width:48px;display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.step-dot{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;color:#fff;flex-shrink:0}
+.step-dot-1{background:var(--pink)}
+.step-dot-2{background:var(--purple)}
+.step-dot-3{background:var(--blue)}
+.step-dot-4{background:var(--cyan)}
+.step-dot-5{background:var(--green)}
+.step-connector{width:2px;flex:1;background:rgba(255,255,255,.06);margin-top:8px}
+.step-content h3{font-size:1.15rem;font-weight:700;margin-bottom:6px}
+.step-content p{color:var(--text2);font-size:.9rem}
+
+/* Code block */
+.code-section{background:var(--surface);border-radius:20px;padding:40px;border:1px solid rgba(255,255,255,.05);margin:48px 0}
+.code-tabs{display:flex;gap:8px;margin-bottom:20px}
+.code-tab{padding:6px 16px;border-radius:8px;font-size:.8rem;font-weight:600;border:none;cursor:pointer;transition:all .2s;background:var(--surface2);color:var(--text3)}
+.code-tab.active{background:var(--grad1);color:#fff}
+pre{background:var(--bg);border-radius:12px;padding:20px;overflow-x:auto;font-size:.85rem;line-height:1.8;font-family:'JetBrains Mono',monospace}
+code{color:var(--cyan)}
+code .comment{color:var(--text3)}
+code .string{color:var(--green)}
+code .flag{color:var(--pink)}
+
+/* CTA */
+.cta{text-align:center;padding:100px 24px;position:relative}
+.cta h2{font-size:clamp(2rem,4vw,3rem);font-weight:900;margin-bottom:16px}
+.cta p{color:var(--text2);font-size:1.1rem;margin-bottom:36px;max-width:500px;margin-left:auto;margin-right:auto}
+
+/* Footer */
+footer{border-top:1px solid rgba(255,255,255,.06);padding:40px 0;text-align:center}
+.footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:16px;flex-wrap:wrap}
+.footer-links a{color:var(--text3);text-decoration:none;font-size:.85rem;transition:color .2s}
+.footer-links a:hover{color:var(--pink)}
+.footer-copy{color:var(--text3);font-size:.8rem}
+
+/* Responsive */
+@media(max-width:768px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .fw-grid{grid-template-columns:1fr}
+  .nav-links a.hide-mobile{display:none}
+  .step{flex-direction:column;gap:12px}
+  .step-line{flex-direction:row;width:auto}
+  .step-connector{width:0;height:0}
+}
+@media(max-width:480px){
+  .stats{grid-template-columns:1fr 1fr}
+  .stat{padding:20px 12px}
+  .stat-num{font-size:2rem}
+  .hero-buttons{flex-direction:column;align-items:center}
+}
+
+/* Animations */
+[data-animate]{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
+[data-animate].visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+
+<nav>
+<div class="nav-inner">
+  <div class="nav-logo">Love Skill</div>
+  <div class="nav-links">
+    <a href="#frameworks" class="hide-mobile" data-en="Frameworks" data-zh="框架">Frameworks</a>
+    <a href="#protocols" class="hide-mobile" data-en="Protocols" data-zh="协议">Protocols</a>
+    <a href="#quickstart" class="hide-mobile" data-en="Quick Start" data-zh="快速开始">Quick Start</a>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('zh')">ZH</button>
+    </div>
+  </div>
+</div>
+</nav>
+
+<section class="hero">
+<div class="hero-content" data-animate>
+  <div class="hero-badge"><span class="dot"></span> <span data-en="v2.0 — Evolved through 300+ GEP cycles" data-zh="v2.0 — 经过300+次GEP进化周期">v2.0 — Evolved through 300+ GEP cycles</span></div>
+  <h1>
+    <span data-en="Understand Each Other" data-zh="理解彼此">Understand Each Other</span><br>
+    <span class="gradient" data-en="Not Just Hear Each Other" data-zh="而非只是听见">Not Just Hear Each Other</span>
+  </h1>
+  <p class="hero-sub" data-en="An AI-powered relationship counseling skill with 13 evidence-based psychological frameworks, designed for any coding agent to help couples resolve conflicts." data-zh="一个基于AI的情侣关系咨询技能，融合13个循证心理学框架，让任何AI代理都能帮助情侣解决冲突。">An AI-powered relationship counseling skill with 13 evidence-based psychological frameworks, designed for any coding agent to help couples resolve conflicts.</p>
+  <div class="hero-buttons">
+    <a href="https://github.com/pajamadot/love-skill" class="btn btn-primary" data-en="View on GitHub" data-zh="GitHub 查看源码">View on GitHub</a>
+    <a href="#quickstart" class="btn btn-secondary" data-en="Quick Start" data-zh="快速开始">Quick Start</a>
+  </div>
+</div>
+</section>
+
+<div class="container">
+<div class="stats" data-animate>
+  <div class="stat"><div class="stat-num">13</div><div class="stat-label" data-en="Frameworks" data-zh="心理学框架">Frameworks</div></div>
+  <div class="stat"><div class="stat-num">4</div><div class="stat-label" data-en="Protocols" data-zh="干预协议">Protocols</div></div>
+  <div class="stat"><div class="stat-num">2</div><div class="stat-label" data-en="Languages" data-zh="支持语言">Languages</div></div>
+  <div class="stat"><div class="stat-num">300+</div><div class="stat-label" data-en="Evolution Cycles" data-zh="进化周期">Evolution Cycles</div></div>
+</div>
+</div>
+
+<section id="frameworks">
+<div class="container">
+  <div data-animate>
+    <div class="section-label" data-en="Psychological Frameworks" data-zh="心理学框架">Psychological Frameworks</div>
+    <div class="section-title" data-en="13 Evidence-Based Lenses" data-zh="13个循证视角">13 Evidence-Based Lenses</div>
+    <p class="section-desc" data-en="Each framework provides a unique angle for understanding couple dynamics. The AI selects and combines the most relevant ones for each situation." data-zh="每个框架提供理解情侣动态的独特视角。AI会为每种情况选择和组合最相关的框架。">Each framework provides a unique angle for understanding couple dynamics. The AI selects and combines the most relevant ones for each situation.</p>
+  </div>
+  <div class="fw-grid">
+    <div class="fw-card" data-animate>
+      <div class="fw-num"data-en="CORE 01" data-zh="核心 01">CORE 01</div>
+      <div class="fw-name" data-en="Attachment Theory" data-zh="依恋理论">Attachment Theory</div>
+      <div class="fw-author">Bowlby & Ainsworth</div>
+      <div class="fw-desc" data-en="Understand pursue-withdraw dynamics through secure, anxious, avoidant, and disorganized attachment styles." data-zh="通过安全型、焦虑型、回避型和混乱型依恋风格理解追逐-退缩动态。">Understand pursue-withdraw dynamics through secure, anxious, avoidant, and disorganized attachment styles.</div>
+      <span class="fw-tag tag-core" data-en="Core" data-zh="核心">Core</span>
+    </div>
+    <div class="fw-card" data-animate>
+      <div class="fw-num" data-en="CORE 02" data-zh="核心 02">CORE 02</div>
+      <div class="fw-name" data-en="Gottman Method" data-zh="戈特曼方法">Gottman Method</div>
+      <div class="fw-author">John Gottman</div>
+      <div class="fw-desc" data-en="Four Horsemen diagnosis (criticism, contempt, defensiveness, stonewalling) with targeted antidotes and repair attempts." data-zh="四骑士诊断（批评、蔑视、防御、石墙）及针对性解药和修复尝试。">Four Horsemen diagnosis with targeted antidotes and repair attempts.</div>
+      <span class="fw-tag tag-core" data-en="Core" data-zh="核心">Core</span>
+    </div>
+    <div class="fw-card" data-animate>
+      <div class="fw-num" data-en="CORE 03" data-zh="核心 03">CORE 03</div>
+      <div class="fw-name" data-en="Psychoanalytic" data-zh="精神分析">Psychoanalytic</div>
+      <div class="fw-author">Freud, Jung</div>
+      <div class="fw-desc" data-en="Transference, projection, shadow work, repetition compulsion, and object relations in romantic partnerships." data-zh="浪漫关系中的移情、投射、阴影工作、强迫性重复和客体关系。">Transference, projection, shadow work, and repetition compulsion.</div>
+      <span class="fw-tag tag-core" data-en="Core" data-zh="核心">Core</span>
+    </div>
+    <div class="fw-card" data-animate>
+      <div class="fw-num" data-en="CORE 04" data-zh="核心 04">CORE 04</div>
+      <div class="fw-name" data-en="CBT for Couples" data-zh="认知行为疗法">CBT for Couples</div>
+      <div class="fw-author">Aaron Beck</div>
+      <div class="fw-desc" data-en="10 cognitive distortions in relationships: mind reading, catastrophizing, emotional reasoning, and more." data-zh="关系中的10种认知歪曲：读心术、灾难化、情绪推理等。">10 cognitive distortions in relationships with behavioral experiments.</div>
+      <span class="fw-tag tag-core" data-en="Core" data-zh="核心">Core</span>
+    </div>
+    <div class="fw-card" data-animate>
+      <div class="fw-num" data-en="CORE 05" data-zh="核心 05">CORE 05</div>
+      <div class="fw-name" data-en="Nonviolent Communication" data-zh="非暴力沟通">Nonviolent Communication</div>
+      <div class="fw-author">Marshall Rosenberg</div>
+      <div class="fw-desc" data-en="Observation → Feeling → Need → Request. Transform blame into needs-based dialogue." data-zh="观察→感受→需要→请求。将指责转化为基于需求的对话。">Observation, Feeling, Need, Request. Transform blame into dialogue.</div>
+      <span class="fw-tag tag-core" data-en="Core" data-zh="核心">Core</span>
+    </div>
+    <div class="fw-card" data-animate>
+      <div class="fw-num" data-en="CORE 06" data-zh="核心 06">CORE 06</div>
+      <div class="fw-name" data-en="Gender Psychology" data-zh="性别心理学">Gender Psychology</div>
+      <div class="fw-author">Deborah Tannen</div>
+      <div class="fw-desc" data-en="Bridge socialized communication gaps: report vs. rapport talk, fix vs. feel, emotional labor mapping." data-zh="桥接社会化沟通差异：报告式vs亲密式对话、解决vs感受、情感劳动。">Bridge communication gaps: report vs. rapport, fix vs. feel.</div>
+      <span class="fw-tag tag-core" data-en="Core" data-zh="核心">Core</span>
+    </div>
+    <div class="fw-card" data-animate>
+      <div class="fw-num" data-en="CORE 07" data-zh="核心 07">CORE 07</div>
+      <div class="fw-name" data-en="Metacognition" data-zh="元认知">Metacognition</div>
+      <div class="fw-author" data-en="Systems Thinking" data-zh="系统思维">Systems Thinking</div>
+      <div class="fw-desc" data-en="Double-loop learning, circular causality mapping, perspective-taking, and dialectical thinking." data-zh="双环学习、循环因果映射、视角转换和辩证思维。">Double-loop learning, systems thinking, dialectical thinking.</div>
+      <span class="fw-tag tag-core" data-en="Core" data-zh="核心">Core</span>
+    </div>
+    <div class="fw-card" data-animate>
+      <div class="fw-num" data-en="DEEP 08" data-zh="深层 08">DEEP 08</div>
+      <div class="fw-name" data-en="Emotionally Focused Therapy" data-zh="情绪聚焦疗法 (EFT)">Emotionally Focused Therapy</div>
+      <div class="fw-author">Sue Johnson</div>
+      <div class="fw-desc" data-en="De-escalation, restructuring the emotional bond, 'Hold Me Tight' conversations, A.R.E. assessment." data-zh="降级、重构情感纽带、"紧紧抱住我"对话、A.R.E.评估。">De-escalation, 'Hold Me Tight' conversations, A.R.E.</div>
+      <span class="fw-tag tag-deep" data-en="Deep" data-zh="深层">Deep</span>
+    </div>
+    <div class="fw-card" data-animate>
+      <div class="fw-num" data-en="DEEP 09" data-zh="深层 09">DEEP 09</div>
+      <div class="fw-name" data-en="DBT Skills" data-zh="辩证行为疗法 (DBT)">DBT Skills</div>
+      <div class="fw-author">Marsha Linehan</div>
+      <div class="fw-desc" data-en="Mindfulness, distress tolerance (TIPP), emotion regulation, interpersonal effectiveness (DEAR MAN)." data-zh="正念、痛苦承受（TIPP）、情绪调节、人际效能（DEAR MAN）。">Mindfulness, TIPP, emotion regulation, DEAR MAN.</div>
+      <span class="fw-tag tag-deep" data-en="Deep" data-zh="深层">Deep</span>
+    </div>
+    <div class="fw-card" data-animate>
+      <div class="fw-num" data-en="DEEP 10" data-zh="深层 10">DEEP 10</div>
+      <div class="fw-name" data-en="Polyvagal Theory" data-zh="多迷走神经理论">Polyvagal Theory</div>
+      <div class="fw-author">Stephen Porges</div>
+      <div class="fw-desc" data-en="Ventral vagal (safe), sympathetic (fight/flight), dorsal vagal (freeze). Co-regulation and neuroception." data-zh="腹侧迷走（安全）、交感（战斗/逃跑）、背侧迷走（冻结）。共同调节。">Nervous system states, co-regulation, and neuroception.</div>
+      <span class="fw-tag tag-deep" data-en="Deep" data-zh="深层">Deep</span>
+    </div>
+    <div class="fw-card" data-animate>
+      <div class="fw-num" data-en="DEEP 11" data-zh="深层 11">DEEP 11</div>
+      <div class="fw-name" data-en="Internal Family Systems" data-zh="内在家庭系统 (IFS)">Internal Family Systems</div>
+      <div class="fw-author">Richard Schwartz</div>
+      <div class="fw-desc" data-en="Self, Managers, Firefighters, Exiles. Parts language transforms 'You ARE angry' into 'A part of you IS angry.'" data-zh="自我、管理者、消防员、放逐者。部分语言将"你很生气"转化为"你的一个部分很生气"。">Parts work: Self, Managers, Firefighters, Exiles.</div>
+      <span class="fw-tag tag-deep" data-en="Deep" data-zh="深层">Deep</span>
+    </div>
+    <div class="fw-card" data-animate>
+      <div class="fw-num" data-en="DEEP 12" data-zh="深层 12">DEEP 12</div>
+      <div class="fw-name" data-en="Imago Therapy" data-zh="意象关系疗法">Imago Therapy</div>
+      <div class="fw-author">Harville Hendrix</div>
+      <div class="fw-desc" data-en="Mirror/Validate/Empathize dialogue. Understand the Imago match — why we choose who we choose." data-zh="镜映/验证/共情对话。理解意象匹配——我们为什么选择了彼此。">Mirror/Validate/Empathize. The Imago match.</div>
+      <span class="fw-tag tag-deep" data-en="Deep" data-zh="深层">Deep</span>
+    </div>
+    <div class="fw-card" data-animate>
+      <div class="fw-num" data-en="DEEP 13" data-zh="深层 13">DEEP 13</div>
+      <div class="fw-name" data-en="Somatic Awareness" data-zh="躯体感知">Somatic Awareness</div>
+      <div class="fw-author" data-en="Body Intelligence" data-zh="身体智慧">Body Intelligence</div>
+      <div class="fw-desc" data-en="The body knows before the mind. Body scan, pendulation, co-regulation through touch, somatic triggers." data-zh="身体先于头脑知道。身体扫描、摆荡、触碰共同调节、躯体触发。">The body knows first. Body scan, pendulation, somatic triggers.</div>
+      <span class="fw-tag tag-deep" data-en="Deep" data-zh="深层">Deep</span>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="protocols">
+<div class="container">
+  <div data-animate>
+    <div class="section-label" data-en="Intervention Protocols" data-zh="干预协议">Intervention Protocols</div>
+    <div class="section-title" data-en="4 Step-by-Step Protocols" data-zh="4个分步协议">4 Step-by-Step Protocols</div>
+    <p class="section-desc" data-en="Concrete, actionable intervention sequences that any AI agent can follow to guide couples through difficult moments." data-zh="具体的、可操作的干预序列，任何AI代理都可以按照步骤引导情侣度过困难时刻。">Concrete, actionable intervention sequences for AI agents.</p>
+  </div>
+  <div class="proto-grid">
+    <div class="proto-card" data-animate>
+      <div class="proto-icon">1</div>
+      <div class="proto-name" data-en="Conflict Resolution" data-zh="冲突解决">Conflict Resolution</div>
+      <div class="proto-desc" data-en="5 phases: Pause (regulate), Listen (NVC), Analyze (CBT+psychoanalytic), Bridge (gender-aware), Repair (Gottman)." data-zh="五阶段：暂停（调节）、倾听（NVC）、分析（CBT+精神分析）、搭桥（性别意识）、修复（戈特曼）。">5 phases: Pause, Listen, Analyze, Bridge, Repair.</div>
+    </div>
+    <div class="proto-card" data-animate>
+      <div class="proto-icon">2</div>
+      <div class="proto-name" data-en="Emotional Repair" data-zh="情感修复">Emotional Repair</div>
+      <div class="proto-desc" data-en="7 steps for trust rebuilding: Acknowledge, Validate, Responsibility, Remorse, Amends, Patience, Rebuild." data-zh="信任重建七步：承认、确认、承担责任、悔意、弥补、耐心、重建。">7 steps: Acknowledge, Validate, Responsibility, Amends.</div>
+    </div>
+    <div class="proto-card" data-animate>
+      <div class="proto-icon">3</div>
+      <div class="proto-name" data-en="Perspective Shift" data-zh="视角转换">Perspective Shift</div>
+      <div class="proto-desc" data-en="6 exercises: Letter Exchange, Relationship's Voice, Time Machine, Iceberg Map, Compassionate Witness, Both/And." data-zh="六个练习：书信交换、关系的声音、时间机器、冰山图、慈悲见证、既/又整合。">6 exercises: Iceberg, Letter Exchange, Time Machine.</div>
+    </div>
+    <div class="proto-card" data-animate>
+      <div class="proto-icon">4</div>
+      <div class="proto-name" data-en="Advanced Metacognition" data-zh="高级元认知">Advanced Metacognition</div>
+      <div class="proto-desc" data-en="6-layer reasoning architecture with 7-lens analysis protocol and recursive self-reflection for the AI itself." data-zh="六层推理架构，配合七镜头分析协议和AI自身的递归自我反思。">6-layer reasoning, 7-lens analysis, error correction.</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="quickstart">
+<div class="container">
+  <div data-animate>
+    <div class="section-label" data-en="Get Started" data-zh="开始使用">Get Started</div>
+    <div class="section-title" data-en="Load It Into Any AI Agent" data-zh="加载到任何AI代理">Load It Into Any AI Agent</div>
+  </div>
+  <div class="code-section" data-animate>
+    <div class="code-tabs">
+      <button class="code-tab active" onclick="showTab('english')">English</button>
+      <button class="code-tab" onclick="showTab('chinese')">中文</button>
+    </div>
+    <pre id="tab-english"><code><span class="comment"># Clone the skill</span>
+git clone https://github.com/pajamadot/love-skill.git
+
+<span class="comment"># Load the full methodology into your AI agent</span>
+node index.js show
+
+<span class="comment"># View all 13 frameworks</span>
+node index.js frameworks
+
+<span class="comment"># View all 4 protocols</span>
+node index.js protocols
+
+<span class="comment"># JSON output for programmatic agent consumption</span>
+node index.js analyze
+
+<span class="comment"># Run continuous evolution via EvoMap</span>
+npm run evolve:innovate</code></pre>
+    <pre id="tab-chinese" style="display:none"><code><span class="comment"># 克隆技能仓库</span>
+git clone https://github.com/pajamadot/love-skill.git
+
+<span class="comment"># 加载完整方法论（中文版）</span>
+node index.js show <span class="flag">--zh</span>
+
+<span class="comment"># 查看所有13个框架</span>
+node index.js frameworks <span class="flag">--zh</span>
+
+<span class="comment"># 查看所有4个协议</span>
+node index.js protocols <span class="flag">--zh</span>
+
+<span class="comment"># JSON输出供AI程序化使用</span>
+node index.js analyze <span class="flag">--zh</span>
+
+<span class="comment"># 通过EvoMap运行持续进化</span>
+npm run evolve:innovate</code></pre>
+  </div>
+</div>
+</section>
+
+<section id="how-it-works">
+<div class="container">
+  <div data-animate>
+    <div class="section-label" data-en="How It Works" data-zh="工作原理">How It Works</div>
+    <div class="section-title" data-en="Dual-Perspective Analysis" data-zh="双视角分析">Dual-Perspective Analysis</div>
+  </div>
+  <div class="steps">
+    <div class="step" data-animate>
+      <div class="step-line"><div class="step-dot step-dot-1">1</div><div class="step-connector"></div></div>
+      <div class="step-content">
+        <h3 data-en="Intake & Mapping" data-zh="接案与映射">Intake & Mapping</h3>
+        <p data-en="Maps each partner's stated position, underlying needs, attachment signals, cognitive patterns, defense mechanisms, and gender-informed lens." data-zh="映射每位伴侣的表面立场、底层需求、依恋信号、认知模式、防御机制和性别视角。">Maps each partner's position, needs, and attachment signals.</p>
+      </div>
+    </div>
+    <div class="step" data-animate>
+      <div class="step-line"><div class="step-dot step-dot-2">2</div><div class="step-connector"></div></div>
+      <div class="step-content">
+        <h3 data-en="Pattern Detection" data-zh="模式检测">Pattern Detection</h3>
+        <p data-en="Identifies Gottman Four Horsemen, attachment dance, pursue-withdraw cycle, circular dynamics, and psychoanalytic themes." data-zh="识别戈特曼四骑士、依恋之舞、追逐-退缩循环、循环动态和精神分析主题。">Identifies Four Horsemen, attachment dance, and circular dynamics.</p>
+      </div>
+    </div>
+    <div class="step" data-animate>
+      <div class="step-line"><div class="step-dot step-dot-3">3</div><div class="step-connector"></div></div>
+      <div class="step-content">
+        <h3 data-en="Framework Selection" data-zh="框架选择">Framework Selection</h3>
+        <p data-en="Uses the meta-framework selection matrix to choose the best-fit combination of frameworks for this specific situation." data-zh="使用元框架选择矩阵为特定情况选择最佳匹配的框架组合。">Selects the best-fit framework combination for this situation.</p>
+      </div>
+    </div>
+    <div class="step" data-animate>
+      <div class="step-line"><div class="step-dot step-dot-4">4</div><div class="step-connector"></div></div>
+      <div class="step-content">
+        <h3 data-en="Actionable Guidance" data-zh="可操作建议">Actionable Guidance</h3>
+        <p data-en="Provides specific, behavioral recommendations for each partner and the relationship, grounded in the selected frameworks." data-zh="基于所选框架，为每位伴侣和关系提供具体的行为建议。">Specific behavioral recommendations for each partner.</p>
+      </div>
+    </div>
+    <div class="step" data-animate>
+      <div class="step-line"><div class="step-dot step-dot-5">5</div></div>
+      <div class="step-content">
+        <h3 data-en="Metacognitive Reflection" data-zh="元认知反思">Metacognitive Reflection</h3>
+        <p data-en="Helps the couple see the deeper systemic pattern and develop capacity for self-resolution in future conflicts." data-zh="帮助情侣看到更深层的系统模式，发展未来冲突中自我解决的能力。">Helps the couple develop self-resolution capacity.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="cta">
+<div class="container" data-animate>
+  <h2 data-en="Start Helping Couples Today" data-zh="今天就开始帮助情侣">Start Helping Couples Today</h2>
+  <p data-en="Load the skill into your AI agent and transform how couples navigate conflict." data-zh="将技能加载到你的AI代理中，改变情侣应对冲突的方式。">Load the skill into your AI agent and transform how couples navigate conflict.</p>
+  <div class="hero-buttons">
+    <a href="https://github.com/pajamadot/love-skill" class="btn btn-primary" data-en="Get Love Skill" data-zh="获取 Love Skill">Get Love Skill</a>
+    <a href="https://evomap.ai" class="btn btn-secondary" data-en="View on EvoMap" data-zh="在 EvoMap 查看">View on EvoMap</a>
+  </div>
+</div>
+</section>
+
+<footer>
+<div class="container">
+  <div class="footer-links">
+    <a href="https://github.com/pajamadot/love-skill">GitHub</a>
+    <a href="https://evomap.ai">EvoMap</a>
+    <a href="https://github.com/autogame-17/evolver">Evolver</a>
+  </div>
+  <div class="footer-copy">MIT License &middot; PajamaDot &middot; Evolved with EvoMap</div>
+</div>
+</footer>
+
+<script>
+// Language switching
+let currentLang = 'en';
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.trim().toLowerCase() === lang));
+  document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+    const val = el.getAttribute('data-' + lang);
+    if (val) el.textContent = val;
+  });
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+}
+
+// Code tabs
+function showTab(tab) {
+  document.getElementById('tab-english').style.display = tab === 'english' ? '' : 'none';
+  document.getElementById('tab-chinese').style.display = tab === 'chinese' ? '' : 'none';
+  document.querySelectorAll('.code-tab').forEach(t => t.classList.toggle('active', t.textContent.trim() === (tab === 'english' ? 'English' : '\u4e2d\u6587')));
+}
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+// Detect browser language
+if (navigator.language.startsWith('zh')) setLang('zh');
+</script>
+</body>
+</html>
